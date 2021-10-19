@@ -355,7 +355,15 @@ export interface IPageFields {
   title: string;
 
   /** Content */
-  content?: Entry<{ [fieldId: string]: unknown }>[] | undefined;
+  content?:
+    | (
+        | IAnnouncementCollection
+        | IContentSection
+        | IEventCalendar
+        | IFacilitatorCollection
+        | IResourceCollection
+      )[]
+    | undefined;
 }
 
 /** A page to be accessible on your website */
