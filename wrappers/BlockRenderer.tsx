@@ -11,9 +11,11 @@ import Announcement from "../components/Announcement";
 import ContentSection from "../components/ContentSection";
 import Event from "../components/Event";
 import ExternalResource from "../components/ExternalResource";
+import Newsletter from "../components/Newsletter";
 import Resource from "../components/Resource";
 import AnnouncementCollection from "./AnnouncementCollection";
 import EventCalendar from "./EventCalendar";
+import NewsletterCollection from "./NewsletterWrapper";
 import ResourceCollection from "./ResourceCollection";
 
 type BlockRendererProps = {
@@ -69,8 +71,8 @@ const ContentTypeMap = {
   [ContentTypes.FacilitatorCollection]: null,
   [ContentTypes.NavigationItem]: null,
   [ContentTypes.NavigationMenu]: null,
-  [ContentTypes.Newsletter]: null,
-  [ContentTypes.NewsletterCollection]: null,
+  [ContentTypes.Newsletter]: Newsletter,
+  [ContentTypes.NewsletterCollection]: NewsletterCollection,
   [ContentTypes.Resource]: Resource,
   [ContentTypes.ResourceCollection]: ResourceCollection,
 };
