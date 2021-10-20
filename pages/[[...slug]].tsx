@@ -41,7 +41,7 @@ export const getStaticProps: GetStaticProps = async ({ params: { slug = [] } }: 
   const contentfulSlug = ['', ...slug, ''].join('/');
 
   const contentful = await getContentful();
-  const pagesQuery = await contentful.getEntries({ content_type: ContentTypes.Page, 'fields.slug': contentfulSlug });
+  const pagesQuery = await contentful.getEntries({ content_type: ContentTypes.Page, 'fields.slug': contentfulSlug, include: 5 });
   const page = pagesQuery.items?.[0] as IPage || false;
 
   return {
