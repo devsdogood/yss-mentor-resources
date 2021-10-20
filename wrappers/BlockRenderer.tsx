@@ -6,8 +6,10 @@ import {
   isIPage,
   isIPageFieldsItem,
 } from "../@types/contentTypes";
-import { IContentSection, IPage } from "../@types/generated/contentful";
+import { IPage } from "../@types/generated/contentful";
+import Announcement from "../components/Announcement";
 import ContentSection from "../components/ContentSection";
+import AnnouncementCollection from "./AnnouncementCollection";
 
 type BlockRendererProps = {
   block: IPage | IPageFieldsItem | IPageItemFieldsItem;
@@ -16,12 +18,14 @@ type BlockRendererProps = {
 const BlockRenderer: React.FC<BlockRendererProps> = ({ block }) => {
   let children: JSX.Element[] = [];
 
+  const getKey = (content: BlockRendererProps['block']) => `${content.sys.contentType}-${content.sys.id}`;
+
   if (isIPage(block)) {
     // Render all page elements through BlockRenderer
     return (
       <>
         {block.fields.content.map((content) => (
-          <BlockRenderer block={content} />
+          <BlockRenderer key={getKey(content)} block={content} />
         ))}
       </>
     );
@@ -29,7 +33,7 @@ const BlockRenderer: React.FC<BlockRendererProps> = ({ block }) => {
 
   if (isIPageFieldsItem(block)) {
     children = block.fields.content.map((content) => (
-      <BlockRenderer block={content} />
+      <BlockRenderer key={getKey(content)} block={content} />
     ));
   }
 
@@ -41,18 +45,17 @@ const BlockRenderer: React.FC<BlockRendererProps> = ({ block }) => {
     return null;
   }
 
-  const { id } = block.sys;
-
   return (
-    <Component key={`${contentTypeId}-${id}`} entry={block as IContentSection}>
+    // @ts-ignore while we don't have all content types mapped to a component
+    <Component key={getKey(block)} entry={block}>
       {children}
     </Component>
   );
 };
 
 const ContentTypeMap = {
-  [ContentTypes.Announcement]: null,
-  [ContentTypes.AnnouncementCollection]: null,
+  [ContentTypes.Announcement]: Announcement,
+  [ContentTypes.AnnouncementCollection]: AnnouncementCollection,
   [ContentTypes.ContentSection]: ContentSection,
   [ContentTypes.Event]: null,
   [ContentTypes.EventCalendar]: null,

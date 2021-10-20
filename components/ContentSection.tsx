@@ -7,6 +7,6 @@ const ContentSection: React.FC<ContentSectionProps> = ({ entry }: ContentSection
   <>
     {documentToReactComponents(entry.fields.content)}
   </>
-)
+);
 
 export default ContentSection;
