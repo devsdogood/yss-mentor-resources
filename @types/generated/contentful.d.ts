@@ -47,7 +47,7 @@ export interface IAnnouncementCollectionFields {
   limit?: number | undefined;
 
   /** Announcements */
-  announcements?: IAnnouncement[] | undefined;
+  content: IAnnouncement[];
 }
 
 /** A collection of announcements to display on your site. You can choose to display either the most recent announcements or a collection of announcements of your choice. */
@@ -72,7 +72,7 @@ export interface IAnnouncementCollection
 
 export interface IContentSectionFields {
   /** Content */
-  content?: Document | undefined;
+  content: Document;
 }
 
 /** A content section to display on your site. This can contain text formatting, images, links, etc. */
@@ -138,7 +138,7 @@ export interface IEventCalendarFields {
   limit?: number | undefined;
 
   /** Events */
-  events?: IEvent[] | undefined;
+  content: IEvent[];
 }
 
 /** A calendar of events to display on your site. You can choose to display either the most recent events or a collection of events of your choice. */
@@ -231,7 +231,7 @@ export interface IFacilitatorCollectionFields {
   limit?: number | undefined;
 
   /** Facilitators */
-  facilitators?: IFacilitator[] | undefined;
+  content: IFacilitator[];
 }
 
 /** A collection of facilitators to display on your site. You can choose to display either the most recent facilitators or a collection of facilitators of your choice. */
@@ -355,15 +355,13 @@ export interface IPageFields {
   title: string;
 
   /** Content */
-  content?:
-    | (
-        | IAnnouncementCollection
-        | IContentSection
-        | IEventCalendar
-        | IFacilitatorCollection
-        | IResourceCollection
-      )[]
-    | undefined;
+  content: (
+    | IAnnouncementCollection
+    | IContentSection
+    | IEventCalendar
+    | IFacilitatorCollection
+    | IResourceCollection
+  )[];
 }
 
 /** A page to be accessible on your website */
@@ -423,7 +421,7 @@ export interface IResourceCollectionFields {
   limit?: number | undefined;
 
   /** Resources */
-  resources?: (IExternalResource | IResource)[] | undefined;
+  content: (IExternalResource | IResource)[];
 }
 
 /** A collection of resources to display on your site. You can choose to display either the most recent resources or a collection of resources of your choice. */
