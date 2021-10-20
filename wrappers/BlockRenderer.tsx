@@ -9,7 +9,9 @@ import {
 import { IPage } from "../@types/generated/contentful";
 import Announcement from "../components/Announcement";
 import ContentSection from "../components/ContentSection";
+import Event from "../components/Event";
 import AnnouncementCollection from "./AnnouncementCollection";
+import EventCalendar from "./EventCalendar";
 
 type BlockRendererProps = {
   block: IPage | IPageFieldsItem | IPageItemFieldsItem;
@@ -57,8 +59,8 @@ const ContentTypeMap = {
   [ContentTypes.Announcement]: Announcement,
   [ContentTypes.AnnouncementCollection]: AnnouncementCollection,
   [ContentTypes.ContentSection]: ContentSection,
-  [ContentTypes.Event]: null,
-  [ContentTypes.EventCalendar]: null,
+  [ContentTypes.Event]: Event,
+  [ContentTypes.EventCalendar]: EventCalendar,
   [ContentTypes.ExternalResource]: null,
   [ContentTypes.Facilitator]: null,
   [ContentTypes.FacilitatorCollection]: null,
