@@ -10,8 +10,11 @@ import { IPage } from "../@types/generated/contentful";
 import Announcement from "../components/Announcement";
 import ContentSection from "../components/ContentSection";
 import Event from "../components/Event";
+import ExternalResource from "../components/ExternalResource";
+import Resource from "../components/Resource";
 import AnnouncementCollection from "./AnnouncementCollection";
 import EventCalendar from "./EventCalendar";
+import ResourceCollection from "./ResourceCollection";
 
 type BlockRendererProps = {
   block: IPage | IPageFieldsItem | IPageItemFieldsItem;
@@ -61,14 +64,14 @@ const ContentTypeMap = {
   [ContentTypes.ContentSection]: ContentSection,
   [ContentTypes.Event]: Event,
   [ContentTypes.EventCalendar]: EventCalendar,
-  [ContentTypes.ExternalResource]: null,
+  [ContentTypes.ExternalResource]: ExternalResource,
   [ContentTypes.Facilitator]: null,
   [ContentTypes.FacilitatorCollection]: null,
   [ContentTypes.NavigationItem]: null,
   [ContentTypes.NavigationMenu]: null,
   [ContentTypes.Newsletter]: null,
-  [ContentTypes.Resource]: null,
-  [ContentTypes.ResourceCollection]: null,
+  [ContentTypes.Resource]: Resource,
+  [ContentTypes.ResourceCollection]: ResourceCollection,
 };
 
 export default BlockRenderer;
