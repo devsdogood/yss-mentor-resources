@@ -32,6 +32,6 @@ export type IPageFieldsItem = Exclude<IEntryFieldsItem<IPage>, IContentSection>;
 /** Child items on the page (content section, announcement, etc).*/
 export type IPageItemFieldsItem = IEntryFieldsItem<IPageFieldsItem> | IContentSection;
 
-export const isIPage = (block: IPage | IPageFieldsItem | IPageItemFieldsItem): block is IPage => (block as IPage).sys.contentType.sys.id === 'page';
+export const isIPage = (block: IPage | IPageFieldsItem | IPageItemFieldsItem): block is IPage => (block as IPage).sys?.contentType?.sys?.id === 'page';
 
-export const isIPageFieldsItem = (block: IPageFieldsItem | IPageItemFieldsItem): block is IPageFieldsItem => Array.isArray((block as IPageFieldsItem).fields.content);
+export const isIPageFieldsItem = (block: IPageFieldsItem | IPageItemFieldsItem): block is IPageFieldsItem => Array.isArray((block as IPageFieldsItem).fields?.content);
