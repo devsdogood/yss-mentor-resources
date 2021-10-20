@@ -24,7 +24,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return { paths, fallback: false };
 }
 
-export const getStaticProps: GetStaticProps = async ({ params: { slug = null } }: Params) => {
+export const getStaticProps: GetStaticProps = async ({ params: { slug = [] } }: Params) => {
   // The slug is passed as an array of routes, need to join back as a string
   const contentfulSlug = ['', ...slug].join('/');
 
