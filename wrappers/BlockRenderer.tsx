@@ -70,6 +70,7 @@ const ContentTypeMap = {
   [ContentTypes.NavigationItem]: null,
   [ContentTypes.NavigationMenu]: null,
   [ContentTypes.Newsletter]: null,
+  [ContentTypes.NewsletterCollection]: null,
   [ContentTypes.Resource]: Resource,
   [ContentTypes.ResourceCollection]: ResourceCollection,
 };

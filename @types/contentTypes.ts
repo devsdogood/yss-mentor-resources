@@ -18,6 +18,7 @@ export enum ContentTypes {
     NavigationItem = 'navigationItem',
     NavigationMenu = 'navigationMenu',
     Newsletter = 'newsletter',
+    NewsletterCollection = 'newsletterCollection',
     Page = 'page',
     Resource = 'resource',
     ResourceCollection = 'resourceCollection',

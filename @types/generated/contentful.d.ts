@@ -344,6 +344,37 @@ export interface INewsletter extends Entry<INewsletterFields> {
   };
 }
 
+export interface INewsletterCollectionFields {
+  /** Use most recent */
+  useMostRecent: boolean;
+
+  /** Limit */
+  limit?: number | undefined;
+
+  /** Newsletters */
+  content: INewsletter[];
+}
+
+/** A collection of newsletters to display on your site. You can choose to display either the most recent newsletters or a collection of newsletters of your choice. */
+
+export interface INewsletterCollection
+  extends Entry<INewsletterCollectionFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "newsletterCollection";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
 export interface IPageFields {
   /** Slug */
   slug: string;
@@ -360,6 +391,7 @@ export interface IPageFields {
     | IContentSection
     | IEventCalendar
     | IFacilitatorCollection
+    | INewsletterCollection
     | IResourceCollection
   )[];
 }
@@ -455,6 +487,7 @@ export type CONTENT_TYPE =
   | "navigationItem"
   | "navigationMenu"
   | "newsletter"
+  | "newsletterCollection"
   | "page"
   | "resource"
   | "resourceCollection";
