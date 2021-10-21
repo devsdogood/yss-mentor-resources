@@ -71,8 +71,6 @@ const ContentTypeMap = {
   [ContentTypes.ExternalResource]: ExternalResource,
   [ContentTypes.Facilitator]: Facilitator,
   [ContentTypes.FacilitatorCollection]: FacilitatorCollection,
-  [ContentTypes.NavigationItem]: null,
-  [ContentTypes.NavigationMenu]: null,
   [ContentTypes.Newsletter]: Newsletter,
   [ContentTypes.NewsletterCollection]: NewsletterCollection,
   [ContentTypes.Resource]: Resource,
