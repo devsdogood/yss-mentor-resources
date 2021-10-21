@@ -7,7 +7,8 @@ const collections = [
     ContentTypes.Event,
     ContentTypes.Facilitator,
     ContentTypes.Newsletter,
-    ContentTypes.Resource
+    ContentTypes.Resource,
+    ContentTypes.ExternalResource,
 ];
 
 const getCollections = async () => {
