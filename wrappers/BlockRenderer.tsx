@@ -55,7 +55,7 @@ const BlockRenderer: React.FC<BlockRendererProps> = ({ block }) => {
   }
 
   return (
-    // @ts-ignore while we don't have all content types mapped to a component
+    // @ts-ignore i'm not sure why TS isn't picking up Component as the type of its map value
     <Component key={getKey(block)} entry={block}>
       {children}
     </Component>
