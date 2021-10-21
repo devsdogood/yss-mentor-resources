@@ -1,5 +1,5 @@
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { IContentSection } from "../@types/generated/contentful";
+import { IContentSection } from "../../@types/generated/contentful";
 
 type ContentSectionProps = { entry: IContentSection };
 

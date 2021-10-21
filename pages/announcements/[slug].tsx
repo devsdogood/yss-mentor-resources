@@ -3,10 +3,10 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { Params } from "next/dist/server/router";
 import { ContentTypes } from "../../@types/contentTypes";
 import { IAnnouncementFields } from "../../@types/generated/contentful";
-import Announcement from "../../components/Announcement";
+import AnnouncementView from "../../components/views/AnnouncementView";
 import collectionData from '../../utils/collections.preval';
 
-export default Announcement;
+export default AnnouncementView;
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const announcements = collectionData[ContentTypes.Announcement] as EntryCollection<IAnnouncementFields>;

@@ -3,10 +3,10 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { Params } from "next/dist/server/router";
 import { ContentTypes } from "../../@types/contentTypes";
 import { IResourceFields } from "../../@types/generated/contentful";
-import Resource from "../../components/Resource";
+import ResourceView from "../../components/views/ResourceView";
 import collectionData from '../../utils/collections.preval';
 
-export default Resource;
+export default ResourceView;
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const resources = collectionData[ContentTypes.Resource] as EntryCollection<IResourceFields>;

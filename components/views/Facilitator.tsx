@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { IFacilitator } from "../@types/generated/contentful";
+import { IFacilitator } from "../../@types/generated/contentful";
 
 type FacilitatorProps = {
     entry: IFacilitator;

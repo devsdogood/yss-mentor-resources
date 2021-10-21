@@ -7,13 +7,13 @@ import {
   isIPageFieldsItem,
 } from "../@types/contentTypes";
 import { IPage } from "../@types/generated/contentful";
-import Announcement from "../components/Announcement";
-import ContentSection from "../components/ContentSection";
-import Event from "../components/Event";
-import ExternalResource from "../components/ExternalResource";
-import Facilitator from "../components/Facilitator";
-import Newsletter from "../components/Newsletter";
-import Resource from "../components/Resource";
+import AnnouncementPreview from "../components/previews/AnnouncementPreview";
+import ContentSection from "../components/views/ContentSection";
+import EventPreview from "../components/previews/EventPreview";
+import ExternalResourcePreview from "../components/previews/ExternalResourcePreview";
+import Facilitator from "../components/views/Facilitator";
+import NewsletterPreview from "../components/previews/NewsletterPreview";
+import ResourcePreview from "../components/previews/ResourcePreview";
 import AnnouncementCollection from "./AnnouncementCollection";
 import EventCalendar from "./EventCalendar";
 import FacilitatorCollection from "./FacilitatorCollection";
@@ -63,17 +63,17 @@ const BlockRenderer: React.FC<BlockRendererProps> = ({ block }) => {
 };
 
 const ContentTypeMap = {
-  [ContentTypes.Announcement]: Announcement,
+  [ContentTypes.Announcement]: AnnouncementPreview,
   [ContentTypes.AnnouncementCollection]: AnnouncementCollection,
   [ContentTypes.ContentSection]: ContentSection,
-  [ContentTypes.Event]: Event,
+  [ContentTypes.Event]: EventPreview,
   [ContentTypes.EventCalendar]: EventCalendar,
-  [ContentTypes.ExternalResource]: ExternalResource,
+  [ContentTypes.ExternalResource]: ExternalResourcePreview,
   [ContentTypes.Facilitator]: Facilitator,
   [ContentTypes.FacilitatorCollection]: FacilitatorCollection,
-  [ContentTypes.Newsletter]: Newsletter,
+  [ContentTypes.Newsletter]: NewsletterPreview,
   [ContentTypes.NewsletterCollection]: NewsletterCollection,
-  [ContentTypes.Resource]: Resource,
+  [ContentTypes.Resource]: ResourcePreview,
   [ContentTypes.ResourceCollection]: ResourceCollection,
 };
 
