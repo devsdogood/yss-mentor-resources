@@ -11,10 +11,12 @@ import Announcement from "../components/Announcement";
 import ContentSection from "../components/ContentSection";
 import Event from "../components/Event";
 import ExternalResource from "../components/ExternalResource";
+import Facilitator from "../components/Facilitator";
 import Newsletter from "../components/Newsletter";
 import Resource from "../components/Resource";
 import AnnouncementCollection from "./AnnouncementCollection";
 import EventCalendar from "./EventCalendar";
+import FacilitatorCollection from "./FacilitatorCollection";
 import NewsletterCollection from "./NewsletterWrapper";
 import ResourceCollection from "./ResourceCollection";
 
@@ -67,8 +69,8 @@ const ContentTypeMap = {
   [ContentTypes.Event]: Event,
   [ContentTypes.EventCalendar]: EventCalendar,
   [ContentTypes.ExternalResource]: ExternalResource,
-  [ContentTypes.Facilitator]: null,
-  [ContentTypes.FacilitatorCollection]: null,
+  [ContentTypes.Facilitator]: Facilitator,
+  [ContentTypes.FacilitatorCollection]: FacilitatorCollection,
   [ContentTypes.NavigationItem]: null,
   [ContentTypes.NavigationMenu]: null,
   [ContentTypes.Newsletter]: Newsletter,

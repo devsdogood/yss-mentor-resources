@@ -4,4 +4,7 @@ const withNextPluginPreval = createNextPluginPreval();
 /** @type {import('next').NextConfig} */
 module.exports = withNextPluginPreval({
   reactStrictMode: true,
+  images: {
+    domains: ['images.ctfassets.net'],
+  },
 });
