@@ -3,11 +3,12 @@ import { EntryCollection } from 'contentful';
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head';
 import { Params } from 'next/dist/server/router';
-import { ContentTypes } from '../@types/contentTypes';
-import { IPage, IPageFields } from '../@types/generated/contentful';
+import { CollectionMap, ContentTypes, IPageFieldsItem, isIPageFieldsItem } from '../@types/contentTypes';
+import { IContentSection, IPage, IPageFields } from '../@types/generated/contentful';
 import getContentful from '../utils/contentful';
 import BlockRenderer from '../wrappers/BlockRenderer';
 import Custom404Page from './404';
+import collectionData from '../utils/collections.preval';
 
 const SlugPage: NextPage<{page: IPage | false}> = ({ page }) => {
   if (!page) return <Custom404Page />
@@ -22,6 +23,28 @@ const SlugPage: NextPage<{page: IPage | false}> = ({ page }) => {
     </>
   );
 };
+
+const convertToAllEntries = <T extends IPageFieldsItem | IContentSection>(block: T): T => {
+  if (isIPageFieldsItem(block) && block.fields.useMostRecent) {
+    const contentType = CollectionMap[block.sys.contentType.sys.id];
+
+    const allEntries = contentType.map((ctype) => collectionData[ctype].items)[0] as typeof block.fields.content;
+    const entries = allEntries
+      // Limit entries
+      .slice(0, block.fields.limit)
+      // Sory by createdAt descending
+      .sort((entry1, entry2) => 
+        new Date(entry2.sys.createdAt).getTime() - new Date(entry1.sys.createdAt).getTime()
+      );
+
+    return {
+      ...block,
+      fields: { content: entries },
+    };
+  }
+
+  return block;
+}
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const contentful = await getContentful();
@@ -43,6 +66,9 @@ export const getStaticProps: GetStaticProps = async ({ params: { slug = [] } }: 
   const contentful = await getContentful();
   const pagesQuery = await contentful.getEntries({ content_type: ContentTypes.Page, 'fields.slug': contentfulSlug, include: 5 });
   const page = pagesQuery.items?.[0] as IPage || false;
+  
+  // Get prevalled entries for collections where useMostRecent is true
+  page.fields.content = page.fields.content.map(convertToAllEntries);
 
   return {
     props: {

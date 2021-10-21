@@ -24,8 +24,28 @@ export enum ContentTypes {
     ResourceCollection = 'resourceCollection',
 };
 
+/** Collections which map to single entries */
+export const CollectionMap = {
+    [ContentTypes.AnnouncementCollection]: [
+        ContentTypes.Announcement,
+    ],
+    [ContentTypes.EventCalendar]: [
+        ContentTypes.Event,
+    ],
+    [ContentTypes.FacilitatorCollection]: [
+        ContentTypes.Facilitator,
+    ],
+    [ContentTypes.NewsletterCollection]: [
+        ContentTypes.Newsletter,
+    ],
+    [ContentTypes.ResourceCollection]: [
+        ContentTypes.ExternalResource,
+        ContentTypes.Resource,
+    ],
+}
+
 /** Get the fields from an array-like entry */
-type IEntryFieldsItem<T extends Entry<IPageFields | IPageFieldsItem['fields']>> = T['fields']['content'][number];
+export type IEntryFieldsItem<T extends Entry<IPageFields | IPageFieldsItem['fields']>> = T['fields']['content'][number];
 
 /** Top-level collections on the page (announcement collection, event calendar, etc). `IContentSection` is excluded since it isn't a collection. */
 export type IPageFieldsItem = Exclude<IEntryFieldsItem<IPage>, IContentSection>;
