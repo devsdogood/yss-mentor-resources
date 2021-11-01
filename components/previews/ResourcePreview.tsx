@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { IResource } from "../../@types/generated/contentful";
 
 type ResourcePreviewProps = {
@@ -8,7 +9,7 @@ const ResourcePreview: React.FC<ResourcePreviewProps> = ({ entry }) => {
   return (
     <p>
       {entry.fields.title} at slug{" "}
-      <a href={`/resources/${entry.fields.slug}`}>{entry.fields.slug}</a>
+      <Link href={`/resources/${entry.fields.slug}`}>{entry.fields.slug}</Link>
     </p>
   );
 };
