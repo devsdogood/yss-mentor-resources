@@ -1,15 +1,16 @@
 import { INewsletter } from "../../@types/generated/contentful";
 
 type NewsletterPreviewProps = {
-    entry: INewsletter;
-}
+  entry: INewsletter;
+};
 
 const NewsletterPreview: React.FC<NewsletterPreviewProps> = ({ entry }) => {
-    return (
-        <>
-            {entry.fields.title} at slug {entry.fields.slug}
-        </>
-    );
+  return (
+    <p>
+      {entry.fields.title} at slug{" "}
+      <a href={`/newsletters/${entry.fields.slug}`}>{entry.fields.slug}</a>
+    </p>
+  );
 };
 
 export default NewsletterPreview;

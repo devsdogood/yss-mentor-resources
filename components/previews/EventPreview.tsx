@@ -1,13 +1,16 @@
 import { IEvent } from "../../@types/generated/contentful";
 
 type EventPreviewProps = {
-    entry: IEvent;
+  entry: IEvent;
 };
 
 const EventPreview: React.FC<EventPreviewProps> = ({ entry }) => {
-    return (
-        <>{entry.fields.title} at slug {entry.fields.slug}</>
-    );
+  return (
+    <p>
+      {entry.fields.title} at slug{" "}
+      <a href={`/events/${entry.fields.slug}`}>{entry.fields.slug}</a>
+    </p>
+  );
 };
 
 export default EventPreview;

@@ -6,7 +6,7 @@ const contentful = require('contentful-management');
  * (use `utils/contentful.ts` for the content delivery API client) */
 module.exports = function () {
   const contentfulClient = contentful.createClient({
-    accessToken: process.env.CONTENTFUL_MANAGEMENT_API_ACCESS_TOKEN,
+    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
   });
 
   return contentfulClient
