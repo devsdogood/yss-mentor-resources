@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { IAnnouncement } from "../../@types/generated/contentful";
 
 type AnnouncementPreviewProps = {
