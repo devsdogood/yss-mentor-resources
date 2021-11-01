@@ -8,7 +8,7 @@ const AnnouncementPreview: React.FC<AnnouncementPreviewProps> = ({ entry }) => {
   return (
     <p>
       {entry.fields.title} at slug{" "}
-      <a href={`/announcements/${entry.fields.slug}`}>{entry.fields.slug}</a>
+      <Link href={`/announcements/${entry.fields.slug}`}>{entry.fields.slug}</Link>
     </p>
   );
 };
