@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { IEvent } from "../../@types/generated/contentful";
 
 type EventPreviewProps = {
@@ -8,7 +9,7 @@ const EventPreview: React.FC<EventPreviewProps> = ({ entry }) => {
   return (
     <p>
       {entry.fields.title} at slug{" "}
-      <a href={`/events/${entry.fields.slug}`}>{entry.fields.slug}</a>
+      <Link href={`/events/${entry.fields.slug}`}>{entry.fields.slug}</Link>
     </p>
   );
 };
