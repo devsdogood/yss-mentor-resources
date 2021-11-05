@@ -287,6 +287,9 @@ export interface INavigationItem extends Entry<INavigationItemFields> {
 export interface INavigationMenuFields {
   /** Menu Items */
   menuItems?: INavigationItem[] | undefined;
+
+  /** Logo */
+  logo: Asset;
 }
 
 /** The navigation menu to appear at the top of your site. Add links to pages within your site or links to an external site (donation page, social media page, etc). */
