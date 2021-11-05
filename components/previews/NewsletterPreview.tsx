@@ -1,15 +1,17 @@
+import Link from 'next/link'
 import { INewsletter } from "../../@types/generated/contentful";
 
 type NewsletterPreviewProps = {
-    entry: INewsletter;
-}
+  entry: INewsletter;
+};
 
 const NewsletterPreview: React.FC<NewsletterPreviewProps> = ({ entry }) => {
-    return (
-        <>
-            {entry.fields.title} at slug {entry.fields.slug}
-        </>
-    );
+  return (
+    <p>
+      {entry.fields.title} at slug{" "}
+      <Link href={`/newsletters/${entry.fields.slug}`}>{entry.fields.slug}</Link>
+    </p>
+  );
 };
 
 export default NewsletterPreview;

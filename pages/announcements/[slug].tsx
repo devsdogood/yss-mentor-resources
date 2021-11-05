@@ -1,30 +1,17 @@
-import { EntryCollection } from "contentful";
-import { GetStaticPaths, GetStaticProps } from "next";
-import { Params } from "next/dist/server/router";
 import { ContentTypes } from "../../@types/contentTypes";
 import { IAnnouncementFields } from "../../@types/generated/contentful";
 import AnnouncementView from "../../components/views/AnnouncementView";
-import collectionData from '../../utils/collections.preval';
+import {
+  getStaticPathsGeneric,
+  getStaticPropsGeneric
+} from "../../utils/next-static-utils";
 
 export default AnnouncementView;
 
-export const getStaticPaths: GetStaticPaths = async () => {
-    const announcements = collectionData[ContentTypes.Announcement] as EntryCollection<IAnnouncementFields>;
-  
-    const paths = announcements.items.map((announcement) => ({
-      params: { slug: announcement.fields.slug }
-    }));
-  
-    return { paths, fallback: false };
-};
+export const getStaticPaths = getStaticPathsGeneric<IAnnouncementFields>(
+  ContentTypes.Announcement
+);
 
-export const getStaticProps: GetStaticProps = async ({ params: { slug = [] } }: Params) => {
-    const announcements = collectionData[ContentTypes.Announcement] as EntryCollection<IAnnouncementFields>;
-    const announcement = announcements.items.find((announcement) => announcement.fields.slug === slug);
-
-    return {
-      props: {
-        entry: announcement,
-      },
-    };
-}
+export const getStaticProps = getStaticPropsGeneric<IAnnouncementFields>(
+  ContentTypes.Announcement
+);
