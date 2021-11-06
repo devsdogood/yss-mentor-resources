@@ -1,9 +1,9 @@
 :root {
   --yss-core: #ef4923;
-  --yss-infants: #53C2C3;
-  --yss-kids: #AF4296;
-  --yss-teen-young-adults: #548C31;
-  --yss-community: #ED4A2E;
+  --yss-infants: #53c2c3;
+  --yss-kids: #af4296;
+  --yss-teen-young-adults: #548c31;
+  --yss-community: #ed4a2e;
   --yss-dark-gray: #262626;
   --yss-med-gray: #808080;
   --yss-light-gray: #808080;
@@ -79,8 +79,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    background-color:var(white);
-    
+  background-color: var(white);
 }
 
 html,
@@ -89,36 +88,45 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    background-color:var(white);    
+  background-color: var(white);
 }
 
 .navbar .navbar-item a {
   color: var(--yss-dark-gray);
-  transition-duration: .2s;
-  text-decoration-color:white;
+  transition-duration: 0.2s;
+  text-decoration-color: white;
   transition: transform 0.2s;
 }
-
-.navbar .navbar-item a:hover{
+.navbar .navbar-item a:hover {
+  transform: scale(1.1);
+}
+.navbar .navbar-item a:hover,
+.navbar .navbar-item.is-active a {
   text-decoration: underline;
-  text-decoration-thickness:4px;
+  text-decoration-thickness: 4px;
   text-decoration-color: var(--yss-core);
   background-color: #fdfafa;
-  transform: scale(1.1);
   backface-visibility: hidden;
   -webkit-font-smoothing: subpixel-antialiased;
 }
-.navbar .navbar-item a:active{
-  color:var(--yss-core)
+.navbar .navbar-item a:active {
+  color: var(--yss-core);
 }
 
 .navbar {
-  background-color:rgb(200, 200, 200);
+  background-color: rgb(200, 200, 200);
+}
+
+.navbar-dropdown, .navbar-dropdown a {
+  background-color: #eee !important;
 }
 
 .button {
-  background-color:var(--yss-core) !important;
-  color:rgb(255, 255, 255) !important;
+  background-color: var(--yss-core) !important;
+  color: #FFFFFF !important;
+  display: block;
+  margin-right: 15rem;
+  margin-left: auto;
 }
 
 a {
@@ -156,7 +164,7 @@ a {
 }
 
 .selectable:hover {
-  cursor:pointer;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 1007px) {
@@ -164,3 +172,4 @@ a {
     margin-top: -40px;
   }
 }
+

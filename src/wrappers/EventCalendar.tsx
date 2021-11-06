@@ -5,24 +5,19 @@ const EventCalendar: React.FC = ({ children }) => {
   return (
     <>
       <div className="ml-10">
-      <div>
-        <h1> <b> Calendar Page </b> </h1>
-      <Calendar />
-      </div>
-      <p>
-      Events:
+        <div>
+          <h1> <strong> Calendar Page </strong> </h1>
+        <Calendar />
+        </div>
+        <p>
+          Events:
+        </p>
+        <p>
+          
       </p>
-      <p>
-      <span className="icon has-text-info">
-      <i className="fas fa-info-circle"></i>
-      <span> Info </span>
-    </span>
-    </p>
     
-      Trying to pull the events based on what date was clicked.
+      
       </div>
-      <div> <input type="text" />
-  </div>
       
     </>
 );

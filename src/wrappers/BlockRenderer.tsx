@@ -1,24 +1,24 @@
-import React from "react";
+import AnnouncementPreview from "@components/previews/AnnouncementPreview";
+import EventPreview from "@components/previews/EventPreview";
+import ExternalResourcePreview from "@components/previews/ExternalResourcePreview";
+import NewsletterPreview from "@components/previews/NewsletterPreview";
+import ResourcePreview from "@components/previews/ResourcePreview";
+import ContentSection from "@components/views/ContentSection";
+import Facilitator from "@components/views/Facilitator";
 import {
   ContentTypes,
   IPageFieldsItem,
   IPageItemFieldsItem,
   isIPage,
-  isIPageFieldsItem,
+  isIPageFieldsItem
 } from "@src/types/contentTypes";
 import { IPage } from "@src/types/generated/contentful";
-import AnnouncementPreview from "@components/previews/AnnouncementPreview";
-import ContentSection from "@components/views/ContentSection";
-import EventPreview from "@components/previews/EventPreview";
-import ExternalResourcePreview from "@components/previews/ExternalResourcePreview";
-import Facilitator from "@components/views/Facilitator";
-import NewsletterPreview from "@components/previews/NewsletterPreview";
-import ResourcePreview from "@components/previews/ResourcePreview";
 import AnnouncementCollection from "@wrappers/AnnouncementCollection";
 import EventCalendar from "@wrappers/EventCalendar";
 import FacilitatorCollection from "@wrappers/FacilitatorCollection";
 import NewsletterCollection from "@wrappers/NewsletterWrapper";
 import ResourceCollection from "@wrappers/ResourceCollection";
+import React from "react";
 
 type BlockRendererProps = {
   block: IPage | IPageFieldsItem | IPageItemFieldsItem;
@@ -27,7 +27,8 @@ type BlockRendererProps = {
 const BlockRenderer: React.FC<BlockRendererProps> = ({ block }) => {
   let children: JSX.Element[] = [];
 
-  const getKey = (content: BlockRendererProps['block']) => `${content.sys.contentType}-${content.sys.id}`;
+  const getKey = (content: BlockRendererProps["block"]) =>
+    `${content.sys.contentType}-${content.sys.id}`;
 
   if (isIPage(block)) {
     // Render all page elements through BlockRenderer
