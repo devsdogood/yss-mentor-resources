@@ -56,8 +56,8 @@ const NavigationMenu: React.FC<{ logo: string; menuItems: INavigationItem[] }> =
             <Link href="/">
               <Image
                 src={logo}
-                width={100}
-                height={100}
+                width={115}
+                height={115}
                 layout="fixed"
                 alt="YSS Mentoring Logo"
               />
@@ -92,7 +92,17 @@ const NavigationMenu: React.FC<{ logo: string; menuItems: INavigationItem[] }> =
                       {childMenuItems![item.fields.title!.toLowerCase()].map(
                         (item) => (
                           <span
-                            className="navbar-item is-uppercase"
+                            className={classNames(
+                              "navbar-item",
+                              "is-uppercase",
+                              {
+                                "is-active":
+                                  router.asPath ===
+                                    item.fields.page!.fields.slug ||
+                                  router.asPath + "/" ===
+                                    item.fields.page!.fields.slug,
+                              }
+                            )}
                             key={item.sys.id}
                           >
                             <Link href={item.fields.page!.fields.slug}>
@@ -106,7 +116,14 @@ const NavigationMenu: React.FC<{ logo: string; menuItems: INavigationItem[] }> =
                 );
               } else {
                 return (
-                  <span className="navbar-item is-uppercase" key={item.sys.id}>
+                  <span
+                    className={classNames("navbar-item", "is-uppercase", {
+                      "is-active":
+                        router.asPath === item.fields.page!.fields.slug ||
+                        router.asPath + "/" === item.fields.page!.fields.slug,
+                    })}
+                    key={item.sys.id}
+                  >
                     <Link href={item.fields.page!.fields.slug}>
                       {item.fields.title}
                     </Link>
@@ -118,7 +135,7 @@ const NavigationMenu: React.FC<{ logo: string; menuItems: INavigationItem[] }> =
           <div className="navbar-end">
             <div className="navbar-item">
               <div className="buttons">
-                <a className="button is-primary">
+                <a className="button is-primary" href="https://www.yss.org/donate/">
                   <strong>Donate</strong>
                 </a>
               </div>

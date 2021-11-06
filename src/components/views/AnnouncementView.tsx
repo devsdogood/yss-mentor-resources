@@ -8,20 +8,20 @@ type AnnouncementViewProps = {
 
 const AnnouncementView: React.FC<AnnouncementViewProps> = ({ entry }) => {
   return (
-    <>
+    <div className="container">
       {/* <b>Full announcement!</b>{' '}{entry.fields.title} at slug {entry.fields.slug} */}
       <Link href="/announcements">
-        <span className="yss-color-core selectable is-underlined is-size-4">
-          <span className="icon">
-            <ion-icon name="arrow-back-circle-outline"></ion-icon>
-          </span>
-          Announcements
+        <span className="yss-color-core selectable is-underlined is-size-5">
+          &larr; Announcements
         </span>
       </Link>
       <div className="box">
+        <h1 className="title is-1 yss-color-dark-grey">{entry.fields.title}</h1>
+        <h5 className="subtitle is-6 yss-color-light-grey">Published at: {(new Date(entry.sys.updatedAt)).toLocaleString()}</h5>
+        <hr style={{border: "solid", borderWidth: "0.25em", borderRadius: "0.25em", borderColor:"var(--yss-dark-gray)"}}/>
         <p>{documentToReactComponents(entry.fields.content)}</p>
       </div>
-    </>
+    </div>
   );
 };
 
