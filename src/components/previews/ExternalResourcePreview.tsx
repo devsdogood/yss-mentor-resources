@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { IExternalResource } from "../../@types/generated/contentful";
+import { IExternalResource } from "@src/types/generated/contentful";
 
 type ExternalResourcePreviewProps = {
   entry: IExternalResource;

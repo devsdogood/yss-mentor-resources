@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { IAnnouncement } from "../../@types/generated/contentful";
+import { IAnnouncement } from "@src/types/generated/contentful";
 
 type AnnouncementPreviewProps = {
   entry: IAnnouncement;

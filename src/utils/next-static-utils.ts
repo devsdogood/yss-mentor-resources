@@ -1,8 +1,8 @@
 import { EntryCollection } from "contentful";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { Params } from "next/dist/server/router";
-import { ContentTypes } from "../@types/contentTypes";
-import collectionData from "./collections.preval";
+import { ContentTypes } from "@src//types/contentTypes";
+import collectionData from "@utils/collections.preval";
 
 export const getStaticPathsGeneric = <T extends { slug: string }>(
   contentType: ContentTypes

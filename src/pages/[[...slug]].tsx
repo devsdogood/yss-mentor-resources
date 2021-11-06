@@ -3,12 +3,12 @@ import { EntryCollection } from 'contentful';
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head';
 import { Params } from 'next/dist/server/router';
-import { CollectionMap, ContentTypes, IPageFieldsItem, isIPageFieldsItem } from '../@types/contentTypes';
-import { IContentSection, IPage, IPageFields } from '../@types/generated/contentful';
-import getContentful from '../utils/contentful';
-import BlockRenderer from '../wrappers/BlockRenderer';
-import Custom404Page from './404';
-import collectionData from '../utils/collections.preval';
+import { CollectionMap, ContentTypes, IPageFieldsItem, isIPageFieldsItem } from '@src/types/contentTypes';
+import { IContentSection, IPage, IPageFields } from '@src/types/generated/contentful';
+import getContentful from '@utils/contentful';
+import BlockRenderer from '@wrappers/BlockRenderer';
+import Custom404Page from '@pages/404';
+import collectionData from '@utils/collections.preval';
 
 const SlugPage: NextPage<{page: IPage | false}> = ({ page }) => {
   if (!page) return <Custom404Page />
@@ -33,7 +33,7 @@ const convertToAllEntries = <T extends IPageFieldsItem | IContentSection>(block:
       // Limit entries
       .slice(0, block.fields.limit)
       // Sory by createdAt descending
-      .sort((entry1, entry2) => 
+      .sort((entry1, entry2) =>
         new Date(entry2.sys.createdAt).getTime() - new Date(entry1.sys.createdAt).getTime()
       );
 
@@ -66,7 +66,7 @@ export const getStaticProps: GetStaticProps = async ({ params: { slug = [] } }: 
   const contentful = await getContentful();
   const pagesQuery = await contentful.getEntries({ content_type: ContentTypes.Page, 'fields.slug': contentfulSlug, include: 5 });
   const page = pagesQuery.items?.[0] as IPage || false;
-  
+
   // Get prevalled entries for collections where useMostRecent is true
   page.fields.content = page.fields.content.map(convertToAllEntries);
 

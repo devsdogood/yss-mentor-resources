@@ -1,5 +1,5 @@
 import { Entry } from "contentful";
-import { IContentSection, IPage, IPageFields } from "./generated/contentful";
+import { IContentSection, IPage, IPageFields } from "@src/types/generated/contentful";
 
 /**
  * `contentful-typescript-codegen` doesn't generate an enum of content types

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { INewsletter } from "../../@types/generated/contentful";
+import { INewsletter } from "@src/types/generated/contentful";
 
 type NewsletterPreviewProps = {
   entry: INewsletter;

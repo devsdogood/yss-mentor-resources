@@ -1,10 +1,10 @@
-import { ContentTypes } from "../../@types/contentTypes";
-import { IAnnouncementFields } from "../../@types/generated/contentful";
-import AnnouncementView from "../../components/views/AnnouncementView";
+import { ContentTypes } from "@src/types/contentTypes";
+import { IAnnouncementFields } from "@src/types/generated/contentful";
+import AnnouncementView from "@components/views/AnnouncementView";
 import {
   getStaticPathsGeneric,
   getStaticPropsGeneric
-} from "../../utils/next-static-utils";
+} from "@utils/next-static-utils";
 
 export default AnnouncementView;
 

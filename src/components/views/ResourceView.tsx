@@ -1,4 +1,4 @@
-import { IResource } from "../../@types/generated/contentful";
+import { IResource } from "@src/types/generated/contentful";
 
 type ResourceViewProps = {
     entry: IResource;
