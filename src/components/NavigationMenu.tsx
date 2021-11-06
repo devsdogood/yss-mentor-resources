@@ -1,45 +1,130 @@
 import { INavigationItem } from "@src/types/generated/contentful";
 import Link from "next/link";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import classNames from "classnames";
+import { useRouter } from "next/router";
 
 const NavigationMenu: React.FC<{ logo: string; menuItems: INavigationItem[] }> =
   ({ logo, menuItems }) => {
+    const router = useRouter();
+    const [parentMenuItems, setParentMenuItems] = useState<INavigationItem[]>(
+      []
+    );
+    const [childMenuItems, setChildMenuItems] =
+      useState<Record<string, INavigationItem[]>>();
+
+    const [isActive, setActive] = useState<boolean>(false);
+
+    useEffect(() => {
+      window?.scrollTo(0, 0);
+      setActive(false);
+    }, [router.asPath]);
+
+    useEffect(() => {
+      setParentMenuItems(
+        menuItems.filter((item) => !(item.metadata?.tags as any)?.length)
+      );
+      setChildMenuItems(
+        menuItems
+          .filter((item) => (item.metadata?.tags as any)?.length)
+          .reduce((childItems, item) => {
+            if (!childItems![item.metadata?.tags[0].sys.id]) {
+              childItems![item.metadata?.tags[0].sys.id] = [];
+            }
+            childItems![item.metadata?.tags[0].sys.id].push(item);
+            return childItems;
+          }, {} as typeof childMenuItems)
+      );
+    }, [menuItems]);
+
+    const toggleNavbar = () => {
+      setActive(!isActive);
+    };
+
+    const burgerClass = classNames("navbar-burger", "burger", {
+      "is-active": isActive,
+    });
+    const navigationClass = classNames("navbar-menu", {
+      "is-active": isActive,
+    });
+
     return (
       <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
-            <a href="/" className="navbar-item">
+          <span className="navbar-item">
+            <Link href="/">
               <Image
                 src={logo}
-                width={112}
-                height={112}
+                width={100}
+                height={100}
                 layout="fixed"
                 alt="YSS Mentoring Logo"
               />
-              </a>
-          <a
-            role="button"
-            className="navbar-burger"
-            aria-label="menu"
-            aria-expanded="false"
-            data-target="navbarBasicExample"
+            </Link>
+          </span>
+          <div
+            className={burgerClass}
+            data-target="navigation"
+            onClick={toggleNavbar}
           >
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
-          </a>
+          </div>
         </div>
 
-        {/* <div id="navbarBasicExample" className="navbar-menu">
+        <div className={navigationClass}>
           <div className="navbar-start">
-            {menuItems.map((item) => (
-              <span className="navbar-item is-uppercase" key={item.sys.id}>
-                <Link href={item.fields.page!.fields.slug}>
-                  {item.fields.title}
-                </Link>
-              </span>
-            ))}
+            {parentMenuItems.map((item) => {
+              if (childMenuItems![item.fields.title!.toLowerCase()]) {
+                return (
+                  <div
+                    className="navbar-item has-dropdown is-hoverable"
+                    key={item.sys.id}
+                  >
+                    <span className="navbar-item is-uppercase">
+                      <Link href={item.fields.page!.fields.slug}>
+                        {item.fields.title}
+                      </Link>
+                    </span>
+                    <div className="navbar-dropdown">
+                      {childMenuItems![item.fields.title!.toLowerCase()].map(
+                        (item) => (
+                          <span
+                            className="navbar-item is-uppercase"
+                            key={item.sys.id}
+                          >
+                            <Link href={item.fields.page!.fields.slug}>
+                              {item.fields.title}
+                            </Link>
+                          </span>
+                        )
+                      )}
+                    </div>
+                  </div>
+                );
+              } else {
+                return (
+                  <span className="navbar-item is-uppercase" key={item.sys.id}>
+                    <Link href={item.fields.page!.fields.slug}>
+                      {item.fields.title}
+                    </Link>
+                  </span>
+                );
+              }
+            })}
           </div>
-        </div> */}
+          <div className="navbar-end">
+            <div className="navbar-item">
+              <div className="buttons">
+                <a className="button is-primary">
+                  <strong>Donate</strong>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </nav>
     );
   };

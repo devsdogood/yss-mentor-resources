@@ -89,23 +89,38 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    background-color:var(white);
-    
+    background-color:var(white);    
 }
 
 .navbar .navbar-item a {
   color: var(--yss-dark-gray);
   transition-duration: .2s;
   text-decoration-color:white;
+  transition: transform 0.2s;
 }
 
 .navbar .navbar-item a:hover{
   text-decoration: underline;
-  text-decoration-thickness:20px;
+  text-decoration-thickness:4px;
   text-decoration-color: var(--yss-core);
+  background-color: #fdfafa;
+  transform: scale(1.1);
+  backface-visibility: hidden;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+.navbar .navbar-item a:active{
+  color:var(--yss-core)
 }
 
- 
+.navbar {
+  background-color:rgb(200, 200, 200);
+}
+
+.button {
+  background-color:var(--yss-core) !important;
+  color:rgb(255, 255, 255) !important;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -118,4 +133,34 @@ a {
 /* Hack to force navbar logos to have the correct cursor */
 .navbar-brand .navbar-item div img:hover {
   cursor: pointer;
+}
+
+.bg-contrast-yss-core {
+  background-color: #0f2666 !important;
+}
+
+.card-border-contrast-yss-core {
+  border-style: solid;
+  border-color: #0f2666 !important;
+  border-width: 0 0.5rem 0.5rem 0.5rem;
+}
+
+/* Scale up the card on hover so it looks cool */
+.card {
+  scale: 100%;
+  transition: scale 0.5s;
+}
+
+.card:hover {
+  scale: 102%;
+}
+
+.selectable:hover {
+  cursor:pointer;
+}
+
+@media screen and (min-width: 1007px) {
+  .navbar-dropdown {
+    margin-top: -40px;
+  }
 }
