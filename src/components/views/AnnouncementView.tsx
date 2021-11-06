@@ -1,4 +1,4 @@
-import { IAnnouncement } from "../../@types/generated/contentful";
+import { IAnnouncement } from "@src/types/generated/contentful";
 
 type AnnouncementViewProps = {
     entry: IAnnouncement;

@@ -1,4 +1,4 @@
-import { INavigationItem } from "../@types/generated/contentful";
+import { INavigationItem } from "@src/types/generated/contentful";
 
 const NavigationMenu: React.FC<{menuItems: INavigationItem[]}> = ({ menuItems }) => (
     <>

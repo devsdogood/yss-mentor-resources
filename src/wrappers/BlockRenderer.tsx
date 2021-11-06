@@ -5,20 +5,20 @@ import {
   IPageItemFieldsItem,
   isIPage,
   isIPageFieldsItem,
-} from "../@types/contentTypes";
-import { IPage } from "../@types/generated/contentful";
-import AnnouncementPreview from "../components/previews/AnnouncementPreview";
-import ContentSection from "../components/views/ContentSection";
-import EventPreview from "../components/previews/EventPreview";
-import ExternalResourcePreview from "../components/previews/ExternalResourcePreview";
-import Facilitator from "../components/views/Facilitator";
-import NewsletterPreview from "../components/previews/NewsletterPreview";
-import ResourcePreview from "../components/previews/ResourcePreview";
-import AnnouncementCollection from "./AnnouncementCollection";
-import EventCalendar from "./EventCalendar";
-import FacilitatorCollection from "./FacilitatorCollection";
-import NewsletterCollection from "./NewsletterWrapper";
-import ResourceCollection from "./ResourceCollection";
+} from "@src/types/contentTypes";
+import { IPage } from "@src/types/generated/contentful";
+import AnnouncementPreview from "@components/previews/AnnouncementPreview";
+import ContentSection from "@components/views/ContentSection";
+import EventPreview from "@components/previews/EventPreview";
+import ExternalResourcePreview from "@components/previews/ExternalResourcePreview";
+import Facilitator from "@components/views/Facilitator";
+import NewsletterPreview from "@components/previews/NewsletterPreview";
+import ResourcePreview from "@components/previews/ResourcePreview";
+import AnnouncementCollection from "@wrappers/AnnouncementCollection";
+import EventCalendar from "@wrappers/EventCalendar";
+import FacilitatorCollection from "@wrappers/FacilitatorCollection";
+import NewsletterCollection from "@wrappers/NewsletterWrapper";
+import ResourceCollection from "@wrappers/ResourceCollection";
 
 type BlockRendererProps = {
   block: IPage | IPageFieldsItem | IPageItemFieldsItem;

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { IEvent } from "../../@types/generated/contentful";
+import { IEvent } from "@src/types/generated/contentful";
 
 type EventPreviewProps = {
   entry: IEvent;

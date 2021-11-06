@@ -1,6 +1,6 @@
 import preval from 'next-plugin-preval';
-import { ContentTypes } from '../@types/contentTypes';
-import getContentful from './contentful';
+import { ContentTypes } from '@src/types/contentTypes';
+import getContentful from '@utils/contentful';
 
 const collections = [
     ContentTypes.Announcement,
