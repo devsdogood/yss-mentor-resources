@@ -4,7 +4,7 @@
 
 ### Node/npm
 
-This projects uses version `2` of the package-lock.json file. Version `2` requires `npm` 7+. npm `8` comes prebundled with Node `16`.
+This projects uses version `2` of the package-lock.json file. Version `2` requires `npm` 7+. npm `8` comes prebundled with Node `16`. Note: Node `14` should be used for now. [Vercel doesn't support](https://vercel.com/docs/runtimes#official-runtimes/node-js/node-js-version) `16` yet.
 
 ## Install project dependencies
 
