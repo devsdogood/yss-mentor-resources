@@ -7,7 +7,6 @@ import { IContentSection } from "@src/types/generated/contentful";
 import { ReactNode } from "react";
 import { useRouter } from "next/router";
 import Home from "@components/pages/Home";
-import Covid19 from "@components/pages/resources/COVID-19";
 
 type ContentSectionProps = { entry: IContentSection };
 
