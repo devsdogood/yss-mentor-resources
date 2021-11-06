@@ -1,4 +1,5 @@
 import '@styles/globals.css'
+import 'bulma/css/bulma.min.css'
 import type { AppProps } from 'next/app'
 import AppLayout from '@wrappers/AppWrapper';
 
@@ -9,4 +10,5 @@ function MyApp({ Component, pageProps }: AppProps) {
     </AppLayout>
   );
 }
+
 export default MyApp

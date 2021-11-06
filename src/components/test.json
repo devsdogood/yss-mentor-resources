@@ -1,0 +1,73 @@
+{
+  "menuItems": [
+    {
+      "metadata": { "tags": [] },
+      "sys": {
+        "space": {
+          "sys": { "type": "Link", "linkType": "Space", "id": "k7f9vav5tbde" }
+        },
+        "id": "1FTOGQOAQEMs4ZNzrxIJtP",
+        "type": "Entry",
+        "createdAt": "2021-10-20T02:47:57.900Z",
+        "updatedAt": "2021-10-20T02:47:57.900Z",
+        "environment": {
+          "sys": { "id": "master", "type": "Link", "linkType": "Environment" }
+        },
+        "revision": 1,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "navigationItem"
+          }
+        },
+        "locale": "en-US"
+      },
+      "fields": {
+        "title": "Home",
+        "page": {
+          "metadata": { "tags": [] },
+          "sys": {
+            "space": {
+              "sys": {
+                "type": "Link",
+                "linkType": "Space",
+                "id": "k7f9vav5tbde"
+              }
+            },
+            "id": "4l2sFTK1OIDwi0geDFj1yV",
+            "type": "Entry",
+            "createdAt": "2021-10-20T00:12:36.781Z",
+            "updatedAt": "2021-10-20T16:12:33.136Z",
+            "environment": {
+              "sys": {
+                "id": "master",
+                "type": "Link",
+                "linkType": "Environment"
+              }
+            },
+            "revision": 2,
+            "contentType": {
+              "sys": { "type": "Link", "linkType": "ContentType", "id": "page" }
+            },
+            "locale": "en-US"
+          },
+          "fields": {
+            "slug": "/",
+            "description": "This is the home page",
+            "title": "YSS Resource Center",
+            "content": [
+              {
+                "sys": {
+                  "type": "Link",
+                  "linkType": "Entry",
+                  "id": "26ave5nFAcJMPg6fKoFPhc"
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

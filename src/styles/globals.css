@@ -1,11 +1,111 @@
+:root {
+  --yss-core: #ef4923;
+  --yss-infants: #53C2C3;
+  --yss-kids: #AF4296;
+  --yss-teen-young-adults: #548C31;
+  --yss-community: #ED4A2E;
+  --yss-dark-gray: #262626;
+  --yss-med-gray: #808080;
+  --yss-light-gray: #808080;
+}
+
+.yss-color-core {
+  color: var(--yss-core) !important;
+}
+
+.yss-color-infants {
+  color: var(--yss-infants) !important;
+}
+
+.yss-color-kids {
+  color: var(--yss-kids) !important;
+}
+
+.yss-color-teen-young-adults {
+  color: var(--yss-teen-young-adults) !important;
+}
+
+.yss-color-community {
+  color: var(--yss-community) !important;
+}
+
+.yss-color-dark-gray {
+  color: var(--yss-dark-gray) !important;
+}
+
+.yss-color-med-gray {
+  color: var(--yss-med-gray) !important;
+}
+
+.yss-color-light-gray {
+  color: var(--yss-light-gray) !important;
+}
+
+.yss-bg-color-core {
+  background-color: var(--yss-core) !important;
+}
+
+.yss-bg-color-infants {
+  background-color: var(--yss-infants) !important;
+}
+
+.yss-bg-color-kids {
+  background-color: var(--yss-kids) !important;
+}
+
+.yss-bg-color-teen-young-adults {
+  background-color: var(--yss-teen-young-adults) !important;
+}
+
+.yss-bg-color-community {
+  background-color: var(--yss-community) !important;
+}
+
+.yss-bg-color-dark-gray {
+  background-color: var(--yss-dark-gray) !important;
+}
+
+.yss-bg-color-med-gray {
+  background-color: var(--yss-med-gray) !important;
+}
+
+.yss-bg-color-light-gray {
+  background-color: var(--yss-light-gray) !important;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    background-color:var(white);
+    
 }
 
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    background-color:var(white);
+    
+}
+
+.navbar .navbar-item a {
+  color: var(--yss-dark-gray);
+  transition-duration: .2s;
+  text-decoration-color:white;
+}
+
+.navbar .navbar-item a:hover{
+  text-decoration: underline;
+  text-decoration-thickness:20px;
+  text-decoration-color: var(--yss-core);
+}
+
+ 
 a {
   color: inherit;
   text-decoration: none;
@@ -13,4 +113,9 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+/* Hack to force navbar logos to have the correct cursor */
+.navbar-brand .navbar-item div img:hover {
+  cursor: pointer;
 }

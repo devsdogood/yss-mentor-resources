@@ -9,7 +9,7 @@ const AppLayout: React.FC = ({ children }) => {
 
     return (
         <>
-            <NavigationMenu menuItems={menuItems} />
+            <NavigationMenu logo={`https:${menu.logo.fields.file.url}`} menuItems={menuItems} />
             {children}
         </>
     );

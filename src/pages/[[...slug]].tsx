@@ -18,6 +18,7 @@ const SlugPage: NextPage<{page: IPage | false}> = ({ page }) => {
       <Head>
         <title>{page.fields.title}</title>
         <meta name="description" content={page.fields.description} />
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
       </Head>
       <BlockRenderer block={page} />
     </>
@@ -44,7 +45,10 @@ const convertToAllEntries = <T extends IPageFieldsItem | IContentSection>(block:
   }
 
   return block;
+
 }
+
+
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const contentful = await getContentful();
@@ -58,6 +62,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return { paths, fallback: false };
 }
+ 
 
 export const getStaticProps: GetStaticProps = async ({ params: { slug = [] } }: Params) => {
   // The slug is passed as an array of routes, need to join back as a string
@@ -76,5 +81,6 @@ export const getStaticProps: GetStaticProps = async ({ params: { slug = [] } }: 
     },
   };
 }
+
 
 export default SlugPage;

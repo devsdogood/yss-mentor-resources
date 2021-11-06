@@ -6,6 +6,7 @@ type ContentSectionProps = { entry: IContentSection };
 const ContentSection: React.FC<ContentSectionProps> = ({ entry }: ContentSectionProps) => (
   <>
     {documentToReactComponents(entry.fields.content)}
+    <b>this is the content page</b>
   </>
 );
 
