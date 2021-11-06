@@ -4,7 +4,6 @@ import { IResource } from "@src/types/generated/contentful";
 type ResourcePreviewProps = {
   entry: IResource;
 };
-
 const ResourcePreview: React.FC<ResourcePreviewProps> = ({ entry }) => {
   return (
     <p>
@@ -13,5 +12,6 @@ const ResourcePreview: React.FC<ResourcePreviewProps> = ({ entry }) => {
     </p>
   );
 };
+
 
 export default ResourcePreview;
