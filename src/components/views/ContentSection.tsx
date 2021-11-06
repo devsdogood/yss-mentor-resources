@@ -1,12 +1,11 @@
+import Home from "@components/pages/Home";
 import {
   documentToReactComponents,
-  Options,
+  Options
 } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, MARKS } from "@contentful/rich-text-types";
 import { IContentSection } from "@src/types/generated/contentful";
-import { ReactNode } from "react";
 import { useRouter } from "next/router";
-import Home from "@components/pages/Home";
 
 type ContentSectionProps = { entry: IContentSection };
 
@@ -20,7 +19,7 @@ const options: Options = {
     ),
     [BLOCKS.EMBEDDED_ASSET]: (node) => (
       <p>
-        <a href={node.data.target.fields.file.url} target="_blank">
+        <a href={node.data.target.fields.file.url} target="_blank" rel="noreferrer noopener">
           {node.data.target.fields.title}
         </a>
       </p>
