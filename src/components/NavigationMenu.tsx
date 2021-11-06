@@ -135,7 +135,7 @@ const NavigationMenu: React.FC<{ logo: string; menuItems: INavigationItem[] }> =
           <div className="navbar-end">
             <div className="navbar-item">
               <div className="buttons">
-                <a className="button is-primary">
+                <a className="button is-primary" href="https://www.yss.org/donate/">
                   <strong>Donate</strong>
                 </a>
               </div>
