@@ -1,26 +1,24 @@
-import React from "react";
-import { EntryCollection } from "contentful";
-import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
-import Head from "next/head";
-import { Params } from "next/dist/server/router";
+import Custom404Page from "@pages/404";
 import {
   CollectionMap,
   ContentTypes,
   IPageFieldsItem,
-  isIPageFieldsItem,
+  isIPageFieldsItem
 } from "@src/types/contentTypes";
 import {
   IContentSection,
   IPage,
-  IPageFields,
+  IPageFields
 } from "@src/types/generated/contentful";
+import collectionData from "@utils/collections.preval";
 import getContentful from "@utils/contentful";
 import BlockRenderer from "@wrappers/BlockRenderer";
-import Custom404Page from "@pages/404";
-import collectionData from "@utils/collections.preval";
+import { EntryCollection } from "contentful";
+import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import { Params } from "next/dist/server/router";
+import Head from "next/head";
+import React from "react";
 
-import { Options } from "@contentful/rich-text-react-renderer";
-import { BLOCKS, MARKS } from "@contentful/rich-text-types";
 
 const SlugPage: NextPage<{ page: IPage | false }> = ({ page }) => {
   if (!page) return <Custom404Page />;
