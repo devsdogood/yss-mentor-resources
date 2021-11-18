@@ -4,6 +4,7 @@ import ExternalResourcePreview from "@components/previews/ExternalResourcePrevie
 import NewsletterPreview from "@components/previews/NewsletterPreview";
 import ResourcePreview from "@components/previews/ResourcePreview";
 import ContentSection from "@components/views/ContentSection";
+import EventCalendar from "@components/views/EventCalendar";
 import Facilitator from "@components/views/Facilitator";
 import {
   ContentTypes,
@@ -14,7 +15,6 @@ import {
 } from "@src/types/contentTypes";
 import { IPage } from "@src/types/generated/contentful";
 import AnnouncementCollection from "@wrappers/AnnouncementCollection";
-import EventCalendar from "@wrappers/EventCalendar";
 import FacilitatorCollection from "@wrappers/FacilitatorCollection";
 import NewsletterCollection from "@wrappers/NewsletterWrapper";
 import ResourceCollection from "@wrappers/ResourceCollection";
