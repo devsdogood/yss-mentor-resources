@@ -1,5 +1,6 @@
 import Home from "@components/pages/Home";
 import YourLifeIowa from "@components/pages/YourLifeIowa";
+import ReferAFriend from "@components/pages/ReferAFriend";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { IContentSection } from "@src/types/generated/contentful";
 import { defaultRenderOptions } from "@utils/render-options";
@@ -16,6 +17,8 @@ const ContentSection: React.FC<ContentSectionProps> = ({
       return <Home entry={entry} />;
     case "/your-life-iowa":
       return <YourLifeIowa entry={entry} />;
+    case "/refer-a-friend":
+      return <ReferAFriend entry={entry} />;
     default:
       return (
         <div
