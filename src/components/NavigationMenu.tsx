@@ -43,10 +43,10 @@ const NavigationMenu: React.FC<{ logo: string; menuItems: INavigationItem[] }> =
     };
 
     const burgerClass = classNames("navbar-burger", "burger", {
-      "is-active": isActive,
+      "styled-link": isActive,
     });
     const navigationClass = classNames("navbar-menu", {
-      "is-active": isActive,
+      "styled-link": isActive,
     });
 
     return (
@@ -96,7 +96,7 @@ const NavigationMenu: React.FC<{ logo: string; menuItems: INavigationItem[] }> =
                               "navbar-item",
                               "is-uppercase",
                               {
-                                "is-active":
+                                "styled-link":
                                   router.asPath ===
                                     item.fields.page!.fields.slug ||
                                   router.asPath + "/" ===
@@ -118,7 +118,7 @@ const NavigationMenu: React.FC<{ logo: string; menuItems: INavigationItem[] }> =
                 return (
                   <span
                     className={classNames("navbar-item", "is-uppercase", {
-                      "is-active":
+                      "styled-link":
                         router.asPath === item.fields.page!.fields.slug ||
                         router.asPath + "/" === item.fields.page!.fields.slug,
                     })}
