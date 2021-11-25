@@ -1,5 +1,6 @@
 import { Options } from "@contentful/rich-text-react-renderer";
-import { BLOCKS, MARKS } from "@contentful/rich-text-types";
+import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types";
+import Link from "next/link";
 
 export const defaultRenderOptions: Options = {
     renderMark: {
@@ -13,6 +14,11 @@ export const defaultRenderOptions: Options = {
         <h2 className="title is-2">{children}</h2>
       ),
       [BLOCKS.PARAGRAPH]: (_, children) => <p className="mb-5">{children}</p>,
+      [INLINES.HYPERLINK]: ({ data }, children) => (
+        <Link href={data.uri} passHref>
+          <a className="styled-link">{children}</a>
+        </Link>
+      ),
       [BLOCKS.EMBEDDED_ASSET]: (node) => (
         <p>
           <a
