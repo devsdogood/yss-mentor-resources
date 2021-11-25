@@ -105,7 +105,7 @@ body {
   text-decoration: underline;
   text-decoration-thickness: 4px;
   text-decoration-color: var(--yss-core);
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   backface-visibility: hidden;
   -webkit-font-smoothing: subpixel-antialiased;
 }
@@ -117,13 +117,14 @@ body {
   background-color: rgb(200, 200, 200);
 }
 
-.navbar-dropdown, .navbar-dropdown a {
+.navbar-dropdown,
+.navbar-dropdown a {
   background-color: #eee !important;
 }
 
 .button {
   background-color: var(--yss-core) !important;
-  color: #FFFFFF !important;
+  color: #ffffff !important;
   display: block;
   margin-right: 15rem;
   margin-left: auto;
@@ -167,9 +168,27 @@ a {
   cursor: pointer;
 }
 
+/* REACT CALENDAR */
+.react-calendar {
+  margin: 0 auto;
+  font-size: 1rem !important;
+  border-radius: 4px;
+  width: 80% !important;
+  max-width: 500px !important;
+  overflow: hidden;
+}
+
+.react-calendar button {
+  font-size: 1rem;
+}
+
+button.react-calendar__navigation__label {
+  background-color: #fff !important;
+  color: #000 !important;
+}
+
 @media screen and (min-width: 1007px) {
   .navbar-dropdown {
     margin-top: -40px;
   }
 }
-
