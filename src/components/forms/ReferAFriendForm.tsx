@@ -37,18 +37,27 @@ const ReferAFriendForm = () => {
         </article>
     );
 
+    const SectionTitle: React.FC<{label?: string}> = ({ label }) => (
+        <div className="column is-full my-2">
+            <h3 className="title is-3">{label?.replace('first name', 'information')}</h3>
+        </div>
+    );
+
     return (
         <FormikProvider value={formik}>
             {hasSubmitted && FormSuccessMessage}
 
-            <div className="columns is-multiline">
+            <div className="columns is-multiline mt-6">
                 {fields.map(([name, field]) => (
-                    <div
-                        key={name}
-                        className={`column ${name.includes('Name') ? 'is-half' : 'is-full'}`}
-                    >
-                        <TextField name={name} label={field.spec.label} />
-                    </div>
+                    <>
+                        {name.includes('FirstName') && <SectionTitle label={field.spec.label} />}
+                        <div
+                            key={name}
+                            className={`column ${name.includes('Name') ? 'is-half' : 'is-full'}`}
+                        >
+                            <TextField name={name} label={field.spec.label} />
+                        </div>
+                    </>
                 ))}
             </div>
 
