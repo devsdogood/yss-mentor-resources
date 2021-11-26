@@ -131,7 +131,7 @@ a {
   text-decoration: underline;
   text-decoration-thickness: 4px;
   text-decoration-color: var(--yss-core);
-  background-color: #ffffff;
+  background-color: inherit;
   backface-visibility: hidden;
   -webkit-font-smoothing: subpixel-antialiased;
   color: inherit;
