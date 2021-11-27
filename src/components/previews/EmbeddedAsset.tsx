@@ -22,7 +22,7 @@ const EmbeddedAsset: React.FC<EmbeddedAssetProps> = ({ entry, width }) => {
     return (
       <div>
         <Image
-          src={`https://${entry.data.target.fields.file.url}`}
+          src={`https:${entry.data.target.fields.file.url}`}
           height={imageHeight}
           width={imageWidth}
           objectFit="contain"
@@ -33,7 +33,7 @@ const EmbeddedAsset: React.FC<EmbeddedAssetProps> = ({ entry, width }) => {
 
   // For non-images just render a link to the asset
   return (
-    <Link href={`https://${entry.data.target.fields.file.url}`} passHref>
+    <Link href={`https:${entry.data.target.fields.file.url}`} passHref>
         <a className="styled-link">{entry.data.target.fields.title}</a>
     </Link>
   );
