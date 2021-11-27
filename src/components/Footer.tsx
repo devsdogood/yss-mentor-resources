@@ -7,7 +7,7 @@ type FooterProps = {
 };
 
 const Footer: React.FC<FooterProps> = ({ entry }) => (
-  <footer className="footer">
+  <footer className="footer mt-6">
     <div className="container">
       <div className="content columns">
         <div className="column">
