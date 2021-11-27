@@ -1,17 +1,21 @@
 import React from "react";
-import { INavigationMenuFields } from "@src/types/generated/contentful";
+import { IFooterFields, INavigationMenuFields } from "@src/types/generated/contentful";
 import NavigationMenu from "@components/NavigationMenu";
 import menuData from '@utils/menu.preval';
-import Script from 'next/script'
+import footerData from '@utils/footer.preval';
+import Footer from "@components/Footer";
 
 const AppLayout: React.FC = ({ children }) => {
     const menu = menuData as INavigationMenuFields;
     const menuItems = menu.menuItems!;
 
+    const footer = footerData as IFooterFields;
+
     return (
         <>
             <NavigationMenu logo={`https:${menu.logo.fields.file.url}`} menuItems={menuItems} />
             {children}
+            <Footer entry={footer} />
         </>
     );
 };
