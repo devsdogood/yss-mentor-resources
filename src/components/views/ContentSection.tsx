@@ -20,21 +20,27 @@ const ContentSection: React.FC<ContentSectionProps> = ({
     case "/refer-a-friend":
       return <ReferAFriend entry={entry} />;
     default:
+      const ContainerContent = documentToReactComponents(
+        entry.fields.content,
+        defaultRenderOptions
+      );
+
       return (
-        <div
-          className="container is-fluid"
-          style={{
-            paddingLeft: "8.52rem",
-            paddingRight: "6rem",
-            fontSize: "1.13rem",
-          }}
-        >
-          <h1 className="title is-1"></h1>
-          {documentToReactComponents(
-            entry.fields.content,
-            defaultRenderOptions
-          )}
-        </div>
+        <>
+          <div
+            className="container is-fluid is-hidden-touch"
+            style={{
+              paddingLeft: "8.52rem",
+              paddingRight: "6rem",
+              fontSize: "1.13rem",
+            }}
+          >
+            {ContainerContent}
+          </div>
+          <div className="container is-fluid is-hidden-desktop">
+            {ContainerContent}
+          </div>
+        </>
       );
   }
 };

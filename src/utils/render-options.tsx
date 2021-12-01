@@ -1,6 +1,7 @@
 import EmbeddedAsset from "@components/previews/EmbeddedAsset";
 import { Options } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types";
+import BlockRenderer from "@wrappers/BlockRenderer";
 import Link from "next/link";
 
 export const defaultRenderOptions: Options = {
@@ -22,5 +23,6 @@ export const defaultRenderOptions: Options = {
       ),
       // TODO: Remove hardcoded width for embedded images
       [BLOCKS.EMBEDDED_ASSET]: (node) => <EmbeddedAsset entry={node} width={200} />,
+      [INLINES.EMBEDDED_ENTRY]: (node) => <BlockRenderer block={node.data.target} />,
     },
 };
