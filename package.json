@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "codegen": "contentful-typescript-codegen --output @types/generated/contentful.d.ts"
+    "codegen": "contentful-typescript-codegen --output src/types/generated/contentful.d.ts"
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.4.0",
@@ -23,12 +23,14 @@
     "react": "17.0.2",
     "react-calendar": "^3.5.0",
     "react-dom": "17.0.2",
+    "react-pdf": "^5.5.0",
     "sharp": "^0.29.3",
     "yup": "^0.32.11"
   },
   "devDependencies": {
     "@types/react": "17.0.30",
     "@types/react-calendar": "^3.4.3",
+    "@types/react-pdf": "^5.0.9",
     "autoprefixer": "^10.4.0",
     "contentful-management": "^7.44.2",
     "contentful-typescript-codegen": "^3.2.3",
@@ -36,6 +38,7 @@
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.2",
     "postcss": "^8.3.11",
+    "prettier": "^2.5.0",
     "typescript": "4.4.4"
   },
   "engines": {

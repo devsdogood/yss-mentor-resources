@@ -1,15 +1,18 @@
 import AnnouncementPreview from "@components/previews/AnnouncementPreview";
+import DocumentPreview from "@components/previews/DocumentPreview";
 import EventPreview from "@components/previews/EventPreview";
 import ExternalResourcePreview from "@components/previews/ExternalResourcePreview";
 import NewsletterPreview from "@components/previews/NewsletterPreview";
 import ResourcePreview from "@components/previews/ResourcePreview";
 import ContentSection from "@components/views/ContentSection";
+import DocumentCollection from "@components/views/DocumentCollection";
 import EventCalendar from "@components/views/EventCalendar";
 import Facilitator from "@components/views/Facilitator";
 import {
   ContentTypes,
   IPageFieldsItem,
   IPageItemFieldsItem,
+  isAsset,
   isIPage,
   isIPageFieldsItem
 } from "@src/types/contentTypes";
@@ -18,6 +21,7 @@ import AnnouncementCollection from "@wrappers/AnnouncementCollection";
 import FacilitatorCollection from "@wrappers/FacilitatorCollection";
 import NewsletterCollection from "@wrappers/NewsletterWrapper";
 import ResourceCollection from "@wrappers/ResourceCollection";
+import { Asset } from "contentful";
 import React from "react";
 
 type BlockRendererProps = {
@@ -47,6 +51,10 @@ const BlockRenderer: React.FC<BlockRendererProps> = ({ block }) => {
     ));
   }
 
+  if (isAsset(block)) {
+    return <DocumentPreview entry={block as unknown as Asset} />;
+  }
+
   const contentTypeId = block.sys.contentType.sys.id;
   const Component = ContentTypeMap[contentTypeId];
 
@@ -67,6 +75,7 @@ const ContentTypeMap = {
   [ContentTypes.Announcement]: AnnouncementPreview,
   [ContentTypes.AnnouncementCollection]: AnnouncementCollection,
   [ContentTypes.ContentSection]: ContentSection,
+  [ContentTypes.DocumentCollection]: DocumentCollection,
   [ContentTypes.Event]: EventPreview,
   [ContentTypes.EventCalendar]: EventCalendar,
   [ContentTypes.ExternalResource]: ExternalResourcePreview,

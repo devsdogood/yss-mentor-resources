@@ -1,5 +1,6 @@
 import { Options } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types";
+import BlockRenderer from "@wrappers/BlockRenderer";
 import Link from "next/link";
 
 export const defaultRenderOptions: Options = {
@@ -30,5 +31,6 @@ export const defaultRenderOptions: Options = {
           </a>
         </p>
       ),
+      [INLINES.EMBEDDED_ENTRY]: (node) => <BlockRenderer block={node.data.target} />
     },
 };

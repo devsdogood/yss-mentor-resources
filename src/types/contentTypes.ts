@@ -1,5 +1,6 @@
 import { Entry } from "contentful";
 import { IContentSection, IPage, IPageFields } from "@src/types/generated/contentful";
+import { Asset } from "contentful-management/dist/typings/export-types";
 
 /**
  * `contentful-typescript-codegen` doesn't generate an enum of content types
@@ -10,6 +11,7 @@ export enum ContentTypes {
     Announcement = 'announcement',
     AnnouncementCollection = 'announcementCollection',
     ContentSection = 'contentSection',
+    DocumentCollection = 'documentCollection',
     Event = 'event',
     EventCalendar = 'eventCalendar',
     ExternalResource = 'externalResource',
@@ -56,3 +58,5 @@ export type IPageItemFieldsItem = IEntryFieldsItem<IPageFieldsItem> | IContentSe
 export const isIPage = (block: IPage | IPageFieldsItem | IPageItemFieldsItem): block is IPage => (block as IPage).sys?.contentType?.sys?.id === 'page';
 
 export const isIPageFieldsItem = (block: IPageFieldsItem | IPageItemFieldsItem): block is IPageFieldsItem => Array.isArray((block as IPageFieldsItem).fields?.content);
+
+export const isAsset = (block: IPageFieldsItem | IPageItemFieldsItem | Asset): block is Asset => (block as Asset).fields.file !== undefined;

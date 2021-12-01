@@ -3,6 +3,36 @@
 import { Asset, Entry } from "contentful";
 import { Document } from "@contentful/rich-text-types";
 
+export interface IActivityFields {
+  /** Title */
+  title: string;
+
+  /** Slug */
+  slug: string;
+
+  /** Content */
+  content?: Document | undefined;
+}
+
+/** A match activity idea */
+
+export interface IActivity extends Entry<IActivityFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "activity";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
 export interface IAnnouncementFields {
   /** Title */
   title: string;
@@ -87,6 +117,33 @@ export interface IContentSection extends Entry<IContentSectionFields> {
     contentType: {
       sys: {
         id: "contentSection";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface IDocumentCollectionFields {
+  /** Title */
+  title?: string | undefined;
+
+  /** Documents */
+  content?: Asset[] | undefined;
+}
+
+/** Add a grid of documents to a content section. */
+
+export interface IDocumentCollection extends Entry<IDocumentCollectionFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "documentCollection";
         linkType: "ContentType";
         type: "Link";
       };
@@ -286,7 +343,7 @@ export interface INavigationItem extends Entry<INavigationItemFields> {
 
 export interface INavigationMenuFields {
   /** Menu Items */
-  menuItems?: INavigationItem[] | undefined;
+  menuItems: INavigationItem[];
 
   /** Logo */
   logo: Asset;
@@ -479,9 +536,11 @@ export interface IResourceCollection extends Entry<IResourceCollectionFields> {
 }
 
 export type CONTENT_TYPE =
+  | "activity"
   | "announcement"
   | "announcementCollection"
   | "contentSection"
+  | "documentCollection"
   | "event"
   | "eventCalendar"
   | "externalResource"
