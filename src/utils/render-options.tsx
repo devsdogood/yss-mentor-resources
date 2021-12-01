@@ -1,3 +1,4 @@
+import EmbeddedAsset from "@components/previews/EmbeddedAsset";
 import { Options } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types";
 import BlockRenderer from "@wrappers/BlockRenderer";
@@ -20,17 +21,8 @@ export const defaultRenderOptions: Options = {
           <a className="styled-link">{children}</a>
         </Link>
       ),
-      [BLOCKS.EMBEDDED_ASSET]: (node) => (
-        <p>
-          <a
-            href={node.data.target.fields.file.url}
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            {node.data.target.fields.title}
-          </a>
-        </p>
-      ),
-      [INLINES.EMBEDDED_ENTRY]: (node) => <BlockRenderer block={node.data.target} />
+      // TODO: Remove hardcoded width for embedded images
+      [BLOCKS.EMBEDDED_ASSET]: (node) => <EmbeddedAsset entry={node} width={200} />,
+      [INLINES.EMBEDDED_ENTRY]: (node) => <BlockRenderer block={node.data.target} />,
     },
 };

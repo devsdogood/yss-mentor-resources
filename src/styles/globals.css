@@ -195,3 +195,7 @@ button.react-calendar__navigation__label {
     margin-top: -40px;
   }
 }
+
+footer {
+  padding: 2rem 1rem 3rem !important;
+}

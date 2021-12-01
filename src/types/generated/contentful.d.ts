@@ -311,6 +311,33 @@ export interface IFacilitatorCollection
   };
 }
 
+export interface IFooterFields {
+  /** Left-aligned Content */
+  leftAlignedContent?: Document | undefined;
+
+  /** Right-aligned Content */
+  rightAlignedContent?: Document | undefined;
+}
+
+/** Displays footer content at the bottom of your site */
+
+export interface IFooter extends Entry<IFooterFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "footer";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
 export interface INavigationItemFields {
   /** Title */
   title?: string | undefined;
@@ -546,6 +573,7 @@ export type CONTENT_TYPE =
   | "externalResource"
   | "facilitator"
   | "facilitatorCollection"
+  | "footer"
   | "navigationItem"
   | "navigationMenu"
   | "newsletter"

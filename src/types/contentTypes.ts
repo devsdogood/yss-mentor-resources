@@ -17,6 +17,7 @@ export enum ContentTypes {
     ExternalResource = 'externalResource',
     Facilitator = 'facilitator',
     FacilitatorCollection = 'facilitatorCollection',
+    Footer = 'footer',
     NavigationItem = 'navigationItem',
     NavigationMenu = 'navigationMenu',
     Newsletter = 'newsletter',
