@@ -5,6 +5,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { IContentSection } from "@src/types/generated/contentful";
 import { defaultRenderOptions } from "@utils/render-options";
 import { useRouter } from "next/router";
+import ResponsiveContainer from "@wrappers/ResponsiveContainer";
 
 type ContentSectionProps = { entry: IContentSection };
 
@@ -26,21 +27,9 @@ const ContentSection: React.FC<ContentSectionProps> = ({
       );
 
       return (
-        <>
-          <div
-            className="container is-fluid is-hidden-touch"
-            style={{
-              paddingLeft: "8.52rem",
-              paddingRight: "6rem",
-              fontSize: "1.13rem",
-            }}
-          >
-            {ContainerContent}
-          </div>
-          <div className="container is-fluid is-hidden-desktop">
-            {ContainerContent}
-          </div>
-        </>
+        <ResponsiveContainer>
+          {ContainerContent}
+        </ResponsiveContainer>
       );
   }
 };
