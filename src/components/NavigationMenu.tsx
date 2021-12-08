@@ -42,11 +42,12 @@ const NavigationMenu: React.FC<{ logo: string; menuItems: INavigationItem[] }> =
       setActive(!isActive);
     };
 
-    const burgerClass = classNames("navbar-burger", "burger", {
-      "styled-link": isActive,
+    const burgerClass = classNames("navbar-burger", {
+      "styled-link is-active": isActive,
+      "burger": !isActive,
     });
     const navigationClass = classNames("navbar-menu", {
-      "styled-link": isActive,
+      "styled-link is-active": isActive,
     });
 
     return (
@@ -84,9 +85,12 @@ const NavigationMenu: React.FC<{ logo: string; menuItems: INavigationItem[] }> =
                     key={item.sys.id}
                   >
                     <span className="navbar-item is-uppercase">
-                      <Link href={item.fields.page!.fields.slug}>
-                        {item.fields.title}
-                      </Link>
+                      {item.fields.page ?
+                        <Link href={item.fields.page.fields.slug}>
+                          {item.fields.title}
+                        </Link> :
+                        item.fields.title
+                      }
                     </span>
                     <div className="navbar-dropdown">
                       {childMenuItems![item.fields.title!.toLowerCase()].map(
