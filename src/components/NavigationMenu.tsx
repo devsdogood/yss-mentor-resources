@@ -84,9 +84,12 @@ const NavigationMenu: React.FC<{ logo: string; menuItems: INavigationItem[] }> =
                     key={item.sys.id}
                   >
                     <span className="navbar-item is-uppercase">
-                      <Link href={item.fields.page!.fields.slug}>
-                        {item.fields.title}
-                      </Link>
+                      {item.fields.page ?
+                        <Link href={item.fields.page.fields.slug}>
+                          {item.fields.title}
+                        </Link> :
+                        item.fields.title
+                      }
                     </span>
                     <div className="navbar-dropdown">
                       {childMenuItems![item.fields.title!.toLowerCase()].map(
