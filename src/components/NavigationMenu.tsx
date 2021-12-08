@@ -42,11 +42,12 @@ const NavigationMenu: React.FC<{ logo: string; menuItems: INavigationItem[] }> =
       setActive(!isActive);
     };
 
-    const burgerClass = classNames("navbar-burger", "burger", {
-      "styled-link": isActive,
+    const burgerClass = classNames("navbar-burger", {
+      "styled-link is-active": isActive,
+      "burger": !isActive,
     });
     const navigationClass = classNames("navbar-menu", {
-      "styled-link": isActive,
+      "styled-link is-active": isActive,
     });
 
     return (
