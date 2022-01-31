@@ -17,9 +17,10 @@ const YourLifeIowa: React.FC<ContentSectionProps> = ({ entry }) => {
         <div className="column is-4">
           <Image
             src="/YLI-Horz-Orange.png"
-            height={345}
-            width={450}
+            height={280}
+            width={448}
             layout="responsive"
+            alt="Your Life Iowa Logo"
           />
         </div>
       </div>
